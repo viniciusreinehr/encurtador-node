@@ -3,8 +3,6 @@ import { Link, ILink } from './../model/link';
 
 export class RedirectController
 {
-    constructor ( ) {}
-
     async Main(request: express.Request, response: express.Response)
     {
         {

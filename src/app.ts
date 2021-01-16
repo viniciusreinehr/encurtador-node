@@ -5,7 +5,9 @@ import mongoose from 'mongoose';
 import { ShorterController } from './controller/ShorterController';
 import { RedirectController } from './controller/RedirectController';
 
-require('dotenv').config();
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
