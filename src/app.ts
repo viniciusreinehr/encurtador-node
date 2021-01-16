@@ -30,9 +30,8 @@ app.get('/:token', (new RedirectController()).Main);
 
 app.post('/encurtador', (new ShorterController()).Main);
 
-const porta = Number(process.env.PORT) || 80;
-const address = process.env.IP || '127.0.0.1';
-const server = app.listen(porta, address, () => {
+const porta = Number(process.env.PORT) || 8081;
+const server = app.listen(porta, '127.0.0.1', () => {
     const {port, address} = server.address() as AddressInfo;
     console.log(`Server listening on: http://${address}:${port}`);
 });
