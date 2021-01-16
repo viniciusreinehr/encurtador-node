@@ -2,6 +2,7 @@ import express from 'express';
 import * as bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
+import { AddressInfo } from 'net'
 import { ShorterController } from './controller/ShorterController';
 import { RedirectController } from './controller/RedirectController';
 
@@ -29,4 +30,7 @@ app.get('/:token', (new RedirectController()).Main);
 
 app.post('/encurtador', (new ShorterController()).Main);
 
-export {app};
+const server = app.listen(Number(process.env.PORT), process.env.IP, () => {
+    const {port, address} = server.address() as AddressInfo;
+    console.log(`Server listening on: http://${address}:${port}`);
+});

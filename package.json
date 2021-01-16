@@ -2,15 +2,14 @@
   "name": "encurtador-node",
   "version": "1.0.0",
   "description": "Encurtador de URL",
-  "main": "dist/index.js",
+  "main": "dist/app.js",
   "scripts": {
     "test": "jest",
     "prebuild": "rm -rf dist/* && tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc && cp -rf package.json dist/package.json",
     "prestart": "npm run build",
-    "start": "ts-node dist/index.js",
-    "web": "node index.js",
-    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts"
+    "start": "ts-node .",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/app.ts"
   },
   "repository": {
     "type": "git",
