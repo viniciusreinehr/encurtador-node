@@ -12,7 +12,7 @@ export class ShorterController
     {
         const id = shortid.generate();
         const date = new Date();
-        let expiration = new Date(date.getTime() + parseInt(process.env.EXPIRATION_DATE));
+        let expiration = new Date(date.getTime() + Number(process.env.EXPIRATION_DATE));
 
         const link: ILink = new Link({
             link: request.body.url,
