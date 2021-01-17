@@ -10,20 +10,25 @@ export default class ShorterController
 
     async Main(request: express.Request, response: express.Response)
     {
-        const id = shortid.generate();
-        const date = new Date();
-        const expiration = new Date(date.getTime() + Number(process.env.EXPIRATION_DATE));
+        try {
+            const id = shortid.generate();
+            const date = new Date();
+            const expiration = new Date(date.getTime() + Number(process.env.EXPIRATION_DATE));
 
-        const link: ILink = new Link({
-            link: request.body.url,
-            token: id,
-            expiration_date: expiration
-        });
+            const link: ILink = new Link({
+                link: request.body.url,
+                token: id,
+                expiration_date: expiration
+            });
 
-        await link.save();
+            await link.save();
 
-        response.json({
-            newUrl: `${process.env.URL}${id}`
-        });
+            response.json({
+                newUrl: `${process.env.URL}${id}`
+            });
+        } catch (e) {
+            response.status(404);
+            response.send(e);
+        }
     }
 }
