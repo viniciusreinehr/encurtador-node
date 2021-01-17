@@ -23,12 +23,16 @@ export default class ShorterController
 
             await link.save();
 
+            response.status(200);
             response.json({
                 newUrl: `${process.env.URL}${id}`
             });
         } catch (e) {
             response.status(404);
-            response.send(e);
+            response.json({
+                'error': true,
+                'message': e
+            });
         }
     }
 }

@@ -17,11 +17,14 @@ export default class RedirectController
             if (expiration.getTime() < now.getTime()) {
                 throw new Error(`Data de expiração: ${expiration.toLocaleString()} e agora é ${now.toLocaleString()}`);
             }
-
+            
             response.redirect(link.link);
         } catch (e) {
             response.status(404);
-            response.send(e);
+            response.json({
+                'error': true,
+                'message': e
+            });
         }
     }
 }
