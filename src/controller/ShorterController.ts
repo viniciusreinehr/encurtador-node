@@ -1,8 +1,8 @@
 import express from 'express';
 import shortid from 'shortid';
-import { Link, ILink } from './../model/link';
+import { Link, ILink } from '@model/link';
 
-export class ShorterController
+export default class ShorterController
 {
     constructor ( ) {
         shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ¹²');

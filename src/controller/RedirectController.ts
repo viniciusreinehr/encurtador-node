@@ -1,7 +1,7 @@
 import express from 'express';
-import { Link, ILink } from './../model/link';
+import { Link, ILink } from '@model/link';
 
-export class RedirectController
+export default class RedirectController
 {
     async Main(request: express.Request, response: express.Response)
     {

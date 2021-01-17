@@ -3,8 +3,8 @@ import * as bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import { AddressInfo } from 'net'
-import { ShorterController } from './controller/ShorterController';
-import { RedirectController } from './controller/RedirectController';
+import ShorterController from '@controller/ShorterController';
+import RedirectController from '@controller/RedirectController';
 
 import dotenv from 'dotenv';
 
