@@ -23,7 +23,7 @@ export default class RedirectController
             response.status(404);
             response.json({
                 'error': true,
-                'message': e
+                'message': e.message
             });
         }
     }
