@@ -6,8 +6,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 mongoose.connect(process.env.DB_STRING, {
-  useUnifiedTopology: true,
-  useFindAndModify: true,
   useNewUrlParser: true,
   useCreateIndex: true
 });
