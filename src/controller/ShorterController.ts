@@ -35,7 +35,7 @@ export default class ShorterController
             response.status(404);
             response.json({
                 'error': true,
-                'message': e
+                'message': e.message
             });
         }
     }
