@@ -23,6 +23,10 @@ export default class ShorterController
 
             await link.save();
 
+            if (!link) {
+                throw new Error('Não foi possivel salvar as informações!');
+            }
+
             response.status(200);
             response.json({
                 newUrl: `${process.env.URL}${id}`
