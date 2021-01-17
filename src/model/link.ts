@@ -1,14 +1,4 @@
-import mongoose from 'mongoose';
 import { model, Schema, Model, Document } from 'mongoose';
-
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-mongoose.connect(process.env.DB_STRING, {
-  useNewUrlParser: true,
-  useCreateIndex: true
-});
 interface ILink extends Document {
   link: string;
   token: string;

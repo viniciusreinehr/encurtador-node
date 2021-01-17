@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import shortid from 'shortid';
 import { Link, ILink } from '@model/link';
 
@@ -11,6 +12,11 @@ export default class ShorterController
     async Main(request: express.Request, response: express.Response)
     {
         try {
+            await mongoose.connect(process.env.DB_STRING, {
+                useNewUrlParser: true,
+                useCreateIndex: true
+            });
+
             const id = shortid.generate();
             const date = new Date();
             const expiration = new Date(date.getTime() + Number(process.env.EXPIRATION_DATE));

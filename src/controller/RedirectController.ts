@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import { Link, ILink } from '@model/link';
 
 export default class RedirectController
@@ -6,6 +7,11 @@ export default class RedirectController
     async Main(request: express.Request, response: express.Response)
     {
         try {
+            await mongoose.connect(process.env.DB_STRING, {
+                useNewUrlParser: true,
+                useCreateIndex: true
+            });
+
             const link: ILink = await Link.findOne({ token: request.params.token });
 
             if (!link) {
