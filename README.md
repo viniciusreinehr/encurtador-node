@@ -1,4 +1,4 @@
-#Encurtador de URL
+# Encurtador de URL
 Cria uma versão encurtada de uma URL enviada.
 Ferramenta desenvolvida em NodeJS com banco de dados MongoDB.
 
@@ -24,6 +24,6 @@ Como configurar o projeto:
 
 Considerações:
 * É possível visualizar a ferramenta em funcionamento acessando: `https://vini-shortener.herokuapp.com/`
-** Encurtar uma URL, `https://vini-shortener.herokuapp.com/encurtador`
-** Para visualizar o redirecionamento, acesse o link retornado pela requisição acima.
+  * Encurtar uma URL, `https://vini-shortener.herokuapp.com/encurtador`
+  * Para visualizar o redirecionamento, acesse o link retornado pela requisição acima.
 
