@@ -18,7 +18,7 @@ export default class LinkService
         const date = new Date();
         const expiration = new Date(date.getTime() + Number(process.env.EXPIRATION_TIME));
 
-        await this.db.connect();
+        this.db.connect();
 
         const link: ILink = new Link({
             link: url,
@@ -39,7 +39,7 @@ export default class LinkService
         if (!token)
             throw new Error('Request failed: Parameter `token` is required.');
 
-        await this.db.connect();
+        this.db.connect();
 
         const link: ILink = await Link.findOne({ token: token });
 
