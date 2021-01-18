@@ -9,29 +9,33 @@ export default class LinkService
 
     async create(url, token)
     {
-        if (!url)
-            throw new Error('Request failed: Parameter `url` is required.');
+        try {
+            if (!url)
+                throw new Error('Request failed: Parameter `url` is required.');
 
-        if (!token)
-            throw new Error('Request failed: Parameter `token` is required.');
+            if (!token)
+                throw new Error('Request failed: Parameter `token` is required.');
 
-        const date = new Date();
-        const expiration = new Date(date.getTime() + Number(process.env.EXPIRATION_TIME));
+            const date = new Date();
+            const expiration = new Date(date.getTime() + Number(process.env.EXPIRATION_TIME));
 
-        this.db.connect();
+            this.db.connect();
 
-        const link: ILink = new Link({
-            link: url,
-            token: token,
-            expiration_date: expiration
-        });
+            const link: ILink = new Link({
+                link: url,
+                token: token,
+                expiration_date: expiration
+            });
 
-        await link.save();
+            await link.save();
 
-        if (!link)
-            throw new Error('Request fail: Link doesn`t can be save.');
+            if (!link)
+                throw new Error('Request fail: Link doesn`t can be save.');
 
-        return `${link.token}`;
+            return `${link.token}`;
+        } catch (e) {
+            return null;
+        }
     }
 
     async get(token)

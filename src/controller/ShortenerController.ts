@@ -11,6 +11,9 @@ export default class ShortenerController
     Main(request: express.Request, response: express.Response)
     {
         try {
+            if (!request.body.url)
+                throw new Error('Request failed: Parameter `url` is required.');
+
             const service = new LinkService();
             service.create(request.body.url, shortid.generate()).then(newLink => {
                 response.status(200);
