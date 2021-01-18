@@ -1,7 +1,7 @@
 import express from 'express';
 import * as bodyParser from 'body-parser';
 
-import ShorterController from '@controller/ShorterController';
+import ShortenerController from '@controller/ShortenerController';
 import RedirectController from '@controller/RedirectController';
 import IndexController from '@controller/IndexController';
 
@@ -22,7 +22,7 @@ app.get('/', (new IndexController()).Main);
 
 app.get('/:token', (new RedirectController()).Main);
 
-app.post('/encurtador', (new ShorterController()).Main);
+app.post('/encurtador', (new ShortenerController()).Main);
 
 const porta = Number(process.env.PORT) || 8081;
 
