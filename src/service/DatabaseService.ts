@@ -6,7 +6,8 @@ export default class DatabaseService
     {
         await mongoose.connect(process.env.DB_STRING, {
             useNewUrlParser: true,
-            useCreateIndex: true
+            useCreateIndex: true,
+            useUnifiedTopology: true
         });
     }
 }

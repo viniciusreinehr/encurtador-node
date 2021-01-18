@@ -1,4 +1,4 @@
-import LinkService from '@service/LinkService';
+import LinkService from '../service/LinkService';
 import express from 'express';
 export default class RedirectController
 {
