@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 export default class DatabaseService
 {
-    async connect()
+    connect()
     {
-        await mongoose.connect(process.env.DB_STRING, {
+        mongoose.connect(process.env.DB_STRING, {
             useNewUrlParser: true,
             useCreateIndex: true,
             useUnifiedTopology: true

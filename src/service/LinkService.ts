@@ -43,9 +43,8 @@ export default class LinkService
 
         const link: ILink = await Link.findOne({ token: token });
 
-        if (!link) {
+        if (!link)
             throw new Error('Request failed: Link not found.');
-        }
 
         const expiration = link.expiration_date;
         const now = new Date();
